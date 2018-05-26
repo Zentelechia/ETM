@@ -1,0 +1,80 @@
+<head>
+  <title>EMT</title>
+</head>
+
+<body>
+    <div style="padding: 5px; float: left; width: 60%; height: 100vh">
+      {{> eventz}}
+    </div>
+    <div style="float: left; width: 40%;  height: 100vh">
+      {{> calendar}}
+    </div>
+</body>
+
+<template name="eventz">
+  <button class="btn btn-primary">Добавить событие</button>
+  <h2>Ближайшие события</h2>
+    <div style="overflow-x: scroll; width: 100%; height: 100%">
+      <table>
+        <tr>
+      {{#each days}}
+          <td valign="top">
+            {{> day this}}
+          </td>
+      {{/each}}
+    </tr>
+  </table>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Добавить событие</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Название</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Дата</label>
+            <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          </form>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Сохранить</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
+
+<template name="calendar">
+<div id='calendar'></div>
+</template>
+
+<template name="day">
+  <div style="border-radius: 5px; background-color: white; margin: 10px; width: 250px; padding: 10px">
+    <h5><i>{{date}}</i></h5>
+      {{#each events}}
+          {{> event this}}
+      {{/each}}
+  </div>
+</template>
+<template name="event">
+  <div class="event">
+    <h6 class="time">{{time}}</h6>
+    {{title}}<br>
+    {{initiator}}
+  </div>
+</template>
