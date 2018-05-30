@@ -1,8 +1,20 @@
+
 import {Template} from 'meteor/templating';
 import {ReactiveVar} from 'meteor/reactive-var';
 
 import './main.html';
 
+Meteor.startup(function(){
+  HTTP.post("http://95.216.139.204:1080/login",{header, data:{username: "zenta",password: "123456"}},(err,result)=>{
+if (!err){
+  Session.set("token",result.data.token)
+  header.Authorization="Bearer "+result.data.token;
+} else {
+  console.log(err);
+}
+})
+
+});
 
 Template.eventz.events({
   'click button'(){

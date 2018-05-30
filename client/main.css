@@ -1,16 +1,48 @@
 /* CSS declarations go here */
 html, body {
-  padding: 0px;
+  padding: 30px;
   margin: 0px;
-  background-color: #EEE
+  background-color: #f2f6f7
+}
+.periodSelector {
+  float: right;
+  background-color: #edf2f5;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px;
+  color: #cacbcc;
+}
+.day {
+  border-radius: 5px;
+  background-color: white;
+  margin: 10px;
+  width: 250px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.periodSelector span {
+  cursor: pointer;
+}
+.activ {
+  background-color: white !important;
+  display: block
 }
 .event {
   border: 1px solid lightblue;
   border-radius: 5px;
   margin: 5px;
+  margin-bottom: 25px;
   min-height: 150px;
-  padding: 4px
+  padding: 4px;
+}
+.event:hover {
+  background-color: #4fa4ff;
 }
 .time {
   color: grey
+}
+
+.myblue {
+  background-color: #4fa4ff;
+  border: none;
 }
